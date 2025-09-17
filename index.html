@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ASCII Art Gallery</title>
+  <style>
+    :root {
+      --bg-color: linear-gradient(135deg, #0d0d0d, #1a001a);
+      --card-bg: radial-gradient(circle at top left, #1a1a1a, #0d0d0d);
+      --text-color: #e6e6ff;
+      --accent: #6a0dad;
+      --caption-color: gold;
+      --caption-glow: #8a2be2;
+    }
+
+    body.light-mode {
+      --bg-color: linear-gradient(135deg, #f5f5ff, #eae6ff);
+      --card-bg: radial-gradient(circle at top left, #ffffff, #f0f0ff);
+      --text-color: #333;
+      --accent: #8a2be2;
+      --caption-color: #6a0dad;
+      --caption-glow: #cfaaff;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      transition: background 0.5s ease, color 0.5s ease;
+    }
+
+    header {
+      text-align: center;
+      padding: 3rem 1rem;
+      background: linear-gradient(90deg, #4b0082, #8a2be2);
+      color: white;
+      box-shadow: 0 0 20px #8a2be2;
+      position: relative;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      font-style: italic;
+      color: #f0e6ff;
+    }
+
+    .toggle {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+      box-shadow: 0 0 10px var(--accent);
+      transition: background 0.3s ease;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 3rem 2rem;
+      gap: 2rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 2px solid var(--accent);
+      border-radius: 16px;
+      padding: 1.5rem;
+      width: 320px;
+      box-shadow: 0 0 15px rgba(106, 13, 173, 0.6);
+      transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.5s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 0 25px rgba(255, 215, 0, 0.6);
+      border-color: var(--caption-color);
+    }
+
+    pre {
+      font-family: 'Courier New', monospace;
+      font-size: 0.55rem;
+      color: var(--accent);
+      white-space: pre-wrap;
+      text-align: center;
+      max-width: 100%;
+      line-height: 1.1;
+    }
+
+    .caption {
+      margin-top: 1rem;
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: var(--caption-color);
+      text-shadow: 0 0 5px var(--caption-glow);
+      transition: transform 0.3s ease, text-shadow 0.3s ease;
+    }
+
+    .card:hover .caption {
+      transform: translateY(-4px) scale(1.05);
+      text-shadow: 0 0 15px var(--caption-glow);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      background-color: #111;
+      color: #aaa;
+      font-size: 0.9rem;
+      border-top: 1px solid #333;
+    }
+
+    @media (max-width: 768px) {
+      .card {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>ASCII Art Gallery</h1>
+    <p>Mythical creatures & cosmic symbols in luxury purple & black</p>
+    <button class="toggle" onclick="toggleMode()">Toggle Mode</button>
+  </header>
+
+  <section class="gallery">
+    <div class="card">
+      <pre>
+       ___====-_  _-====___
+ _--^^^#####//      \\#####^^^--_
+-^##########// (    ) \\##########^-_
+-############//  |\^^/|  \\############-
+_/############//   (@::@)   \\############\_
+/#############((     \\//     ))#############\
+-###############\\    (oo)    //###############-
+-#################\\  / UUU \  //#################-
+-###################\\/  (_)  \//###################-
+_#/|##########/\######(   /|\   )######/\##########|\#_
+|/ |#/\#/\#/\/  \#/\##\  |||||  /##/\#/  \/\#/\#/\| \
+||/  V  V  '   V  ||| \| | | | |/ |||  V   '  V  V  \||
+||| \ \|  |  | |  | |||||| |||||| ||| | |  |  | / / |||
+|||  |_|_|_|_|_|_|_|/||||||||||||\|_|_|_|_|_|_|_|_  |||
+||\  .\-----.|.|.|.|.|.|.|.|.|.|.|.|.|.|.|.|.-----. /||
+||   \_/     \_/ \_/ \_/ \_/ \_/ \_/ \_/ \_/     \_/ ||
+||                                               ||
+      </pre>
+      <div class="caption">Mythical Dragon</div>
+    </div>
+
+    <div class="card">
+      <pre>
+   ______
+.-'      '-.
+/          \
+|            |
+|,  .-.  .-. ,|
+| )(_o/  \o_)(|
+|/    /\     \|
+(_    ^^     _)
+ \__|IIIIII|__/
+  | \IIIIII/ |
+  \          /
+   `--------`
+   /  ____  \
+  |  |    |  |
+  |__|____|__|
+  |  |    |  |
+  |__|____|__|
+   \_|____|_/
+    |      |
+    |  ||  |
+    |  ||  |
+    |__||__|
+   (__)  (__)
+      </pre>
+      <div class="caption">Human Skeleton</div>
+    </div>
+
+    <div class="card">
+      <pre>
+  _.-=-._     .-, 
+.'       "-.,' / 
+(          _.  <  
+ `=.____.="  `._\ 
+
+   //\\   //\\
+  ||  || ||  ||
+   \\//   \\//
+
+Pisces ♓ — Duality, Flow, Intuition
+      </pre>
+      <div class="caption">Pisces</div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 ASCII Gallery. Designed for elegance by Azrael.
+  </footer>
+
+  <script>
+    function toggleMode() {
+      document.body.classList.toggle('light-mode');
+    }
+  </script>
+</body>
+</html>
